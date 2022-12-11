@@ -1,0 +1,160 @@
+.PageInfo{
+    margin: 20px;
+}
+
+.topmenu{
+    width: 100%;
+    display: table;
+}
+
+.mainlogo{
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 40px;
+    width: auto;
+}
+
+.rightNAVpanel{
+    text-align: right;
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 40px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.text-title:hover{
+    border : 5px solid #05ace2;
+    border-radius: 5px;
+    color: #05ace2;
+}
+
+.leftsortpanel{
+    display: flex;
+    flex-direction: column;
+    float: left;
+    font-size: 30px;
+    width: auto;
+    max-width: 250px;
+}
+
+.leftsortpanel label select{
+    margin: 20px;
+}
+
+.Selector{
+    display: block;
+}
+
+.Selector select{
+    font-size: 24px;
+}
+
+.Carlist
+{
+    float: right;
+    display: table;
+    width: auto;
+    max-width: 80%;
+}
+
+.CarItem{
+    width: 350px;
+    height: 550px;
+    display: inline-block;
+    border : 2px solid gray;
+    border-radius: 5px;
+    margin: 3px;
+    font-size: 24px;
+}
+
+.CarImg{
+    width: 315px;
+    margin: 10px;
+    height: 280px;
+}
+
+.iconsCar img{
+    width: 25px;
+}
+
+.DescriptionCars{
+    display: flex !important;
+    flex-direction: column;
+    text-align: start;
+    margin: 0 10px;
+}
+
+.engineInfo{
+    display: table;
+}
+
+.colorCar{
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.spanColorCar{
+    margin-right: 5px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgb(0, 0, 0,.2);
+    display: block;
+}
+
+/* resize Region */
+
+@media screen and (max-width: 1400px) {
+    .rightNAVpanel, .mainlogo{
+        display: block;
+        padding: 0 !important;
+        max-width: none !important;
+        margin: 0 !important;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px){
+    .mainlogo {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .rightNAVpanel {
+        width: auto;
+        display: flex !important;
+        flex-direction: column!important;
+        justify-content: space-between !important;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .Carlist {
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .leftsortpanel {
+        width: auto;
+        display: flex !important;
+        flex-direction: column!important;
+        justify-content: space-between !important;
+        margin-bottom: 20px;
+        margin: auto;
+        float: none;
+    }
+}
+
+@media screen and (max-width: 1400px){
+    .text-title{
+        align-self: center !important;
+        margin: 5px;
+        font-size: 60px;
+    }
+}
