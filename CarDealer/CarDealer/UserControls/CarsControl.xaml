@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="CarDealer.UserControls.CarsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarDealer.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="500" Loaded="UserControl_Loaded">
+    <Border BorderThickness="1" Margin="10" BorderBrush="#05ace2">
+        <Grid Background="#221e1f">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="1" BorderBrush="Black" Margin="10">
+                <Image x:Name="Car_Image" Width="auto" MaxHeight="150" Margin="5"/>
+            </Border>
+            <StackPanel Grid.Column="1">
+                <Label Name="Mark_Label" Margin="5,10,5,0"/>
+                <Label Name="ModelName_Label" FontSize="24" Margin="5,0,5,0" FontFamily="Britannic Bold"/>
+                <Label Name="Country_Label" Margin="5,0,5,0"/>
+                <Label Name="HorsePower_Label" Margin="5,0,5,0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2">
+                <Label Name="Color_Label"/>
+                <Label Name="BodyType_Label"/>
+                <Label Name="EngineType_Label"/>
+                <Label Name="Cost_Label" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

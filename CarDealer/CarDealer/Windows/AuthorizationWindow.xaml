@@ -1,0 +1,33 @@
+﻿<Window x:Class="CarDealer.Windows.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CarDealer.Windows"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="250" Width="300">
+    <Grid Background="#221e1f">
+        <Grid Width="230" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Добро пожаловть в систему" HorizontalAlignment="Center" Margin="0,0,0,0"/>
+            <Label Grid.Row="1" Content="Avilon!" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,4,5"/>
+            <TextBox Grid.Row="2" Name="Login_TextBox" materialDesign:HintAssist.Hint="Логин" Resources="{StaticResource MaterialDesign}" Foreground="White" Margin="0,5,0,5" FontFamily="Cambria" FontSize="16"/>
+            <TextBox Visibility="Hidden"  Grid.Row="3" materialDesign:HintAssist.Hint="Пароль" Name="Password_TextBox" Resources="{StaticResource MaterialDesign}" Foreground="White" Cursor="Arrow" Margin="0,5,0,5" FontFamily="Cambria" FontSize="16"/>
+            <PasswordBox Name="Password_PassBox" Grid.Row="3" materialDesign:HintAssist.Hint="Пароль" Resources="{StaticResource MaterialDesign}" FontFamily="Cambria" Foreground="White" Margin="0,5,0,5" FontSize="16"/>
+            <CheckBox x:Name="ShowHidePass_CheckBox" Grid.Column="1" Grid.Row="3" Resources="{StaticResource MaterialDesign}" Checked="ShowHidePass_CheckBox_Checked" Unchecked="ShowHidePass_CheckBox_Unchecked"/>
+            <Button Width="100" Grid.Row="4" Name="LogIn_Button" Height="25"  Content="Войти" Click="LogIn_Button_Click" Resources="{StaticResource MaterialDesign}" FontFamily="Cambria" FontSize="16" Margin="0,5,0,0"/>
+        </Grid>
+    </Grid> 
+    
+</Window>

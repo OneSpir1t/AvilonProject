@@ -1,0 +1,44 @@
+﻿<Window x:Class="CarDealer.Windows.EditOrAddBuyersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarDealer.Windows"
+        mc:Ignorable="d"
+        Title="EditOrAddBuyersWindow" Height="710" Width="400">
+    <Grid Background="#221e1f">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Width="250" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Width="150" Height="150" Margin="10" BorderThickness="1" BorderBrush="#05ace2">
+                <Image Source="/Resources/user-icon.jpg"/>
+            </Border>
+            <Label Content="Фамилия" Margin="5,0,5,5"/>
+            <TextBox x:Name="LastName_TextBox" Text="{Binding Path=LastName}" PreviewTextInput="LastName_TextBox_PreviewTextInput" MaxLength="80" PreviewKeyDown="LastName_TextBox_PreviewKeyDown"/>
+            <Label Content="Имя"/>
+            <TextBox x:Name="FirstName_TextBox" Text="{Binding Path=FirstName}" PreviewTextInput="FirstName_TextBox_PreviewTextInput" MaxLength="80" PreviewKeyDown="FirstName_TextBox_PreviewKeyDown"/>
+            <Label Content="Отчество"/>
+            <TextBox x:Name="Patronymic_TextBox" Text="{Binding Path=Patronymic}" PreviewTextInput="Patronymic_TextBox_PreviewTextInput" MaxLength="78" PreviewKeyDown="Patronymic_TextBox_PreviewKeyDown"/>
+            <Label Content="Дата рождения:"/>
+            <DatePicker Name="Birtday_DatePicker" SelectedDate="{Binding Path=Birthday}"/>
+            <Label Content="Паспорт"/>
+            <TextBox x:Name="Passport_Textbox" Text="{Binding Path=Passport}" PreviewTextInput="Passport_Textbox_PreviewTextInput" MaxLength="10" PreviewKeyDown="Passport_Textbox_PreviewKeyDown"/>
+            <Label Content="Адрес:"/>
+            <TextBox Text="{Binding Path=Address}" MaxLength="150"/>
+            <Label Content="Телефон:"/>
+            <TextBox x:Name="Phone_Textbox" Text="{Binding Path=Phone}" PreviewTextInput="Phone_Textbox_PreviewTextInput" MaxLength="11" PreviewKeyDown="Phone_Textbox_PreviewKeyDown"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="AddEditBuyer_Button" Content="Добавить" Style="{StaticResource myStyleButton}" Click="AddEditBuyer_Button_Click"/>
+            <Button x:Name="DeleteBuyer_Button" Content="Удалить" Grid.Column="1" Style="{StaticResource myStyleButton}" Click="DeleteBuyer_Button_Click"/>
+            <Button Grid.Column="2" x:Name="Cancel_Button" Content="Отмена" Style="{StaticResource myStyleButton}" Click="Cancel_Button_Click"/>
+        </Grid>
+    </Grid>
+</Window>

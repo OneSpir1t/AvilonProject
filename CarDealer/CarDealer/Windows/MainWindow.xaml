@@ -1,0 +1,122 @@
+﻿<Window x:Class="CarDealer.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarDealer"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Avilon" Height="800" Width="1000" FontFamily="Cambria" Closing="Window_Closing" SizeChanged="Window_SizeChanged">
+    <Grid Background="#221e1f" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Grid.Column="1" Foreground="White" Content="Поиск:" HorizontalAlignment="Stretch"/>
+                <TextBox Width="250" Height="30" Grid.Column="1" Name="Search_TextBox" TextChanged="Search_TextBox_TextChanged"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Label Name="FioManager_Label" Foreground="White" Content=""/>
+                <Button Name="LogOut_Button" Width="70" Style="{StaticResource myStyleButton}" Content="Выйти" Click="LogOut_Button_Click"/>
+                <Button Name="Orders_Button" Width="70" Content="Заказы" Style="{StaticResource myStyleButton}" Click="Orders_Button_Click"/>
+                <Button Name="Clients_Button" Width="70" Content="Клиенты" Style="{StaticResource myStyleButton}" Click="Clients_Button_Click"/>
+            </StackPanel>
+            <Image Margin="10,5,5,5" Source="/Resources/Screenshot_2.png" Height="50" Width="100"/>
+        </Grid>
+        <Button x:Name="ShowParam_Button" Style="{StaticResource myStyleButton}" Grid.Row="1" Content="Показать параметры поиска" Width="250" HorizontalAlignment="Center" Click="ShowParam_Button_Click"/>
+        <Grid  x:Name="SortParam_Grid" Visibility="Hidden" Height="0" Grid.Row="1" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="350"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid VerticalAlignment="Center" Background="#221e1f" Margin="0,0,50,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Марка" Margin="5,5,5,5"/>
+                <ComboBox Style="{StaticResource myStyleCombobox}" SelectedIndex="0" Name="MarkSort_Combobox" Grid.Column="1" SelectionChanged="MarkSort_Combobox_SelectionChanged"/>
+                <Label Grid.Row="1" Content="Тип кузова" Margin="5,5,5,5"/>
+                <ComboBox Style="{StaticResource myStyleCombobox}" SelectedIndex="0" Name="BodyType_Combobox" Grid.Row="1" Grid.Column="1" SelectionChanged="BodyType_Combobox_SelectionChanged"/>
+                <Label Grid.Row="2" Content="Тип двигателя" Margin="5,5,5,5"/>
+                <ComboBox Style="{StaticResource myStyleCombobox}" Name="TypeEngine_Combobox" SelectedIndex="0" Grid.Row="2" Grid.Column="1" SelectionChanged="TypeEngine_Combobox_SelectionChanged"/>
+            </Grid>
+            <StackPanel Grid.Column="1" Background="#221e1f" Margin="0,0,0,30">
+                <Label Content="Цена" HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="От"/>
+                    <TextBox x:Name="MinCost_TextBox" MinWidth="120" TextChanged="MinCost_TextBox_TextChanged" PreviewTextInput="MinCost_TextBox_PreviewTextInput" UndoLimit="100" MaxLength="12" Resources="{StaticResource MaterialDesign}" Foreground="White" FontSize="16" Margin="5,5,5,5" />
+                    <Label Content="До"/>
+                    <TextBox x:Name="MaxCost_TextBox" MinWidth="120" PreviewTextInput="MaxCost_TextBox_PreviewTextInput" MaxLength="12" TextChanged="MaxCost_TextBox_TextChanged" Resources="{StaticResource MaterialDesign}" Foreground="White" FontSize="16" Margin="5,5,5,5"/>
+                </StackPanel>
+                <Label Content="Кол-во л.с." HorizontalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="От"/>
+                    <TextBox x:Name="MinHorsePower_TextBox" Width="120" PreviewTextInput="MinHorsePower_TextBox_PreviewTextInput" MaxLength="4" TextChanged="MinHorsePower_TextBox_TextChanged" Resources="{StaticResource MaterialDesign}" Foreground="White" FontSize="16" Margin="5,5,5,5"/>
+                    <Label Content="До"/>
+                    <TextBox x:Name="MaxHorsePower_TextBox" Width="120" PreviewTextInput="MaxHorsePower_TextBox_PreviewTextInput" MaxLength="4" TextChanged="MaxHorsePower_TextBox_TextChanged" Resources="{StaticResource MaterialDesign}" Foreground="White" FontSize="16" Margin="5,5,5,5"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Grid.Column="2" VerticalAlignment="Stretch" Margin="50,0,0,0">
+                <Label Grid.Column="1" Content="Сортировать по:"/>
+                <ComboBox Style="{StaticResource myStyleCombobox}" SelectedIndex="0" Name="Sort_Combobox" Grid.Row="2" Grid.Column="1" SelectionChanged="Sort_Combobox_SelectionChanged"/>
+                <Label Content="Цвет кузова" Grid.Column="2"/>
+                <ComboBox Style="{StaticResource myStyleCombobox}" SelectedIndex="0" Name="Color_Combobox" Grid.Row="2" Grid.Column="2" SelectionChanged="Color_Combobox_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Center"  VerticalAlignment="Bottom">
+                <Button Width="160" x:Name="DropSettings_Button" Content="Сбросить настройки" Style="{StaticResource myStyleButton}" Click="DropSettings_Button_Click"/>
+                <Button Width="100" Content="Скрыть" Grid.Column="1" Style="{StaticResource myStyleButton}" Name="HideParam_Button" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="HideParam_Button_Click"/>
+            </StackPanel>
+        </Grid>
+        <ListView ScrollViewer.CanContentScroll="False" Background="#221e1f" Name="Cars_ViewList" Grid.Row="2" SelectionMode="Single" MouseDoubleClick="Cars_ViewList_MouseDoubleClick" SelectionChanged="Cars_ViewList_SelectionChanged"/>
+        <Label Name="EmptySearch_Label" Grid.Row="2" Visibility="Hidden" Content="Ничего не найдено..." FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid Background="#221e1f" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="EditOrAddCar_Button" Content="Добавить авто" Style="{StaticResource myStyleButton}" Click="EditOrAddCar_Button_Click"/>
+            <Button x:Name="AddOrder_Button" Content="Выбрать" Grid.Column="1" Style="{StaticResource myStyleButton}" Click="AddOrder_Button_Click"/>
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="Показано" Margin="5,5,0,5"/>
+                <Label Name="CountItems_Label"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="3" HorizontalAlignment="Right">
+                <Button Width="20" Name="BackPage_Buttom" Content="&lt;" Style="{StaticResource myStyleButton}" Click="BackPage_Buttom_Click"/>
+                <ComboBox Width="50" Name="Pages_Combobox" SelectedIndex="0" SelectionChanged="Pages_Combobox_SelectionChanged">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="#FFF0F0F0"/>
+                            <GradientStop Color="#FF4B2F2F" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                </ComboBox>
+                <Button Width="20" x:Name="NextPage_Button" Content=">" Style="{StaticResource myStyleButton}" Click="NextPage_Button_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
